@@ -1,0 +1,24 @@
+{% extends 'GWP/base.html' %}
+
+{% block title %}
+    Lista de géneros
+{% endblock title %}
+
+{% block cont_title %}
+    Lista de géneros de videojuegos
+{% endblock cont_title %}
+
+{% block contenido %}
+    
+    {% for generos in genres %}
+
+    <ul>
+        <li>
+            {{generos.genero}}
+        </li>
+    </ul>
+        
+    {% endfor %}
+
+
+{% endblock contenido %}

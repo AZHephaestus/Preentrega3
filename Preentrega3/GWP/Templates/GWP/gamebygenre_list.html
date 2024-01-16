@@ -1,0 +1,27 @@
+{% extends 'GWP/base.html' %}
+
+{% block title %}
+    Lista de juegos por género
+{% endblock title %}
+
+{% block cont_title %}
+    Lista de videojuegos por género
+{% endblock cont_title %}
+
+{% block contenido %}
+
+    <table border="3">
+        <thead>
+            <th class="text-black-50">Nombre</th>
+            <th class="text-black-50">Género</th>
+        </thead>
+        <TBody>
+            {% for genjuegos in gamesgenre %}
+            <tr>
+                <td>{{genjuegos.game}}</td>
+                <td>{{genjuegos.genre}}</td>
+            </tr>
+            {% endfor %}
+        </TBody>
+    </table>
+{% endblock contenido %}

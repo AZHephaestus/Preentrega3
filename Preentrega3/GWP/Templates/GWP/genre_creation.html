@@ -1,0 +1,14 @@
+{% extends 'GWP/base.html' %}
+
+{% block title %}
+    Creación de género de videojuegos
+{% endblock title %}
+
+{% block contenido %}
+
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Agregar</button>
+    </form>
+{% endblock contenido %}

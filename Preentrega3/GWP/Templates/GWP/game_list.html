@@ -1,0 +1,24 @@
+{% extends 'GWP/base.html' %}
+
+{% block title %}
+    Lista de juegos
+{% endblock title %}
+
+{% block cont_title %}
+    Lista de videojuegos
+{% endblock cont_title %}
+
+{% block contenido %}
+    
+    {% for juegos in games %}
+
+    <ul>
+        <li>
+            {{juegos.nombre}}
+        </li>
+    </ul>
+        
+    {% endfor %}
+
+
+{% endblock contenido %}
