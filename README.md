@@ -23,4 +23,9 @@ Alejandro Zambrano
 
     -Ejecutar VisualStudioCode para ver el contenido de la carpeta, comando: code .
 
-    -
+    -Cambiar el directorio en la terminal (ctrl+j para abrir la terminal) a Preentrega3
+    donde se encuentra el archivo "manage.py" si no abre directamente en esta carpeta, comando: cd .\Preentrega3\
+
+    -Ejecutar la app en la terminal, comando: python manage.py runserver
+
+    -Se puede detener la ejecución en la terminal con el comando "ctrl+c"
