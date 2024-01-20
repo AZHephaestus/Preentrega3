@@ -51,3 +51,6 @@ def gamebygenre_create(request):
         form = forms.gamebygenreform()
         context = {"form": form}
     return render(request, "GWP/gamebygenre_creation.html", context) 
+
+def add_index(request):
+    return render(request, "GWP/add_index.html")

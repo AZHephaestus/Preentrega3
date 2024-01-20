@@ -10,4 +10,5 @@ urlpatterns = [
     path('genre/create', views.genre_create, name= "genre_create"),
     path('gamebygenre/list', views.gamebygenre_list, name= "gamebygenre_list"),
     path('gamebygenre/create', views.gamebygenre_create, name= "gamebygenre_create"),
+    path('add/index', views.add_index, name= "add_index"),
 ]
