@@ -4,11 +4,19 @@
     Añadir juegos
 {% endblock title %}
 
+{% block cont_title %}
+
+    ¡Añade un juego!
+    
+{% endblock cont_title %}
+
 {% block contenido %}
 
-    <form method="post">
+    <form method="post" class="text-center">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">Agregar</button>
+        <div class="d-grid gap-2 d-md-block">
+            <button type="submit" class="btn btn-dark btn-sm">Agregar</button>
+        </div>
     </form>
 {% endblock contenido %}

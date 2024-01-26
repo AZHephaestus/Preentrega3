@@ -9,19 +9,20 @@
 {% endblock cont_title %}
 
 {% block contenido %}
-
-    <table border="3">
-        <thead>
-            <th class="text-black-50">Nombre</th>
-            <th class="text-black-50">Género</th>
-        </thead>
-        <TBody>
-            {% for genjuegos in gamesgenre %}
-            <tr>
-                <td>{{genjuegos.game}}</td>
-                <td>{{genjuegos.genre}}</td>
-            </tr>
-            {% endfor %}
-        </TBody>
-    </table>
+<table class="table table-dark table-striped row-cols-auto text-md-center">
+    <thead>
+      <tr>
+        <th scope="col" class="text-black text-bg-light">Nombre</th>
+        <th scope="col" class="text-black text-bg-light">Género</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for genjuegos in gamesgenre %}
+        <tr>
+            <td scope="row">{{genjuegos.game}}</td>
+            <td>{{genjuegos.genre}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
 {% endblock contenido %}

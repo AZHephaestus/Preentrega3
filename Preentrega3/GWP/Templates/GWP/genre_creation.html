@@ -4,11 +4,17 @@
     Creación de género de videojuegos
 {% endblock title %}
 
+{% block cont_title %}
+
+    ¡Añade un género!
+    
+{% endblock cont_title %}
+
 {% block contenido %}
 
-    <form method="post">
+    <form method="post" class="text-center">
         {% csrf_token %}
         {{form.as_p}}
-        <button type="submit">Agregar</button>
+        <button type="submit" class="btn btn-dark btn-sm">Agregar</button>
     </form>
 {% endblock contenido %}
