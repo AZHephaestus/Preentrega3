@@ -9,16 +9,28 @@
 {% endblock cont_title %}
 
 {% block contenido %}
-    
-    {% for juegos in games %}
+    <div class="text-center">  
+        <form method="get">
+            <input type="text" name="consulta" placeholder="Buscar juegos">
+        </form>
+    </div>
 
-    <ul class="list-group col-lg-auto text-center">
-        <li class="list-group-item">
-            {{juegos.nombre}}
-        </li>
-    </ul>
-        
+    {% for juegos in object_list %}
+<div class="row justify-content-center my-5">
+    <div class="col-lg-8 badge bg-black">
+        <ul class="list-group text-center">
+            <li class="list-group-item py-1">
+                {{juegos.nombre}}
+                <button class="btn btn-dark"><a class="text-white-50" href="{% url 'game_detail' juegos.id %}">Detalle</a></button>
+                <button class="btn btn-info"><a class="text-white-50" href="{% url 'game_update' juegos.id %}">Modificar</a></button>
+                <button class="btn btn-danger"><a class="text-white-50" href="{% url 'game_delete' juegos.id %}">Eliminar</a></button>
+            </li>
+        </ul>
+    </div>
+</div>
     {% endfor %}
-
+    <div class="text-center">
+        <button class="btn btn-dark my-4"><a class="text-white-50" href="{% url 'game_form' %}">Añadir juegos</a></button>
+    </div>
 
 {% endblock contenido %}

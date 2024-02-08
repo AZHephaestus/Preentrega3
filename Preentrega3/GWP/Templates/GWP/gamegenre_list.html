@@ -9,16 +9,15 @@
 {% endblock cont_title %}
 
 {% block contenido %}
-    
-    {% for generos in genres %}
 
-    <ul class="list-group col-lg-auto text-center">
-        <li class="list-group-item">
+    {% for generos in object_list %}
+
+    <ul class="list-group col-lg-auto text-center my-3">
+        <li class="list-group-item text-bg-dark">
             {{generos.genero}}
         </li>
     </ul>
         
     {% endfor %}
-
 
 {% endblock contenido %}

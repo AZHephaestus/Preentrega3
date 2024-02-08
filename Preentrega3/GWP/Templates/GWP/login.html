@@ -1,0 +1,24 @@
+{% extends 'GWP/base.html' %}
+
+{% block title %}
+    Login
+{% endblock title %}
+
+{% block cont_title %}
+
+    ¡Ingresa!
+    
+{% endblock cont_title %}
+
+{% block contenido %}
+
+    <form method="post" class="form-control">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="hidden" name="next" value="{% url 'index' %}">
+        <div class="d-grid gap-2 d-md-block">
+            <button type="submit" class="btn btn-dark btn-sm">Iniciar sesión</button>
+            <a href="{% url 'index' %}" class="btn btn-dark btn-sm text-decoration-none">Cancelar</a>
+        </div>
+    </form>
+{% endblock contenido %}

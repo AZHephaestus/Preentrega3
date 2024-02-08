@@ -1,19 +1,20 @@
 from django.db import models
 
 class game(models.Model):
-    nombre = models.CharField(max_length = 100)
-
+    nombre = models.CharField(max_length = 100, verbose_name="Nombre")
+    precio = models.FloatField(null=True, blank=True, verbose_name="Precio")
+    descripcion = models.TextField(max_length = 9999, null=True, blank=True, verbose_name="Descripción")
     def __str__(self) -> str:
-        return self.nombre
+        return f"{self.nombre}: {self.precio:.2f} $"
     
 class gamegenre(models.Model):
-    genero = models.CharField(max_length = 100, null = True, blank = True)
+    genero = models.CharField(max_length = 100, null = True, blank = True, verbose_name="Género")
 
     def __str__(self) -> str:
         return self.genero
     
 class gamebygenre(models.Model):
-    game = models.ForeignKey(game, on_delete = models.CASCADE)
-    genre = models.ForeignKey(gamegenre, on_delete = models.CASCADE)
+    game = models.ForeignKey(game, on_delete = models.CASCADE, verbose_name="Juego")
+    genre = models.ForeignKey(gamegenre, on_delete = models.CASCADE, verbose_name="Género")
     def __str__(self) -> str:
         return f"{self.game}:{self.genre}"

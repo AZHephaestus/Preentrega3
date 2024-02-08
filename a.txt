@@ -1,0 +1,4 @@
+ {{"Precio: "juegos.precio}}
+                {% if juegos.descripcion == True %}
+                    {{"Descripción "juegos.descripcion}}
+                {% endif %}
