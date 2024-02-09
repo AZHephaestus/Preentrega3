@@ -147,6 +147,15 @@ class GenreDelete(LoginRequiredMixin, DeleteView):
     model = gamegenre
     success_url = reverse_lazy("genre_list")
 
+class GameByGenreUpdate(LoginRequiredMixin, UpdateView):
+    model = gamebygenre
+    form_class = gamebygenreform
+    success_url = reverse_lazy("gamebygenre_list") 
+
+class GameByGenreDelete(LoginRequiredMixin, DeleteView):
+    model = gamebygenre
+    success_url = reverse_lazy("gamebygenre_list")
+
 #class GamePurchase(ListView):
 #    model = GamePurchaseForm
 

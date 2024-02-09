@@ -22,6 +22,12 @@
         <tr>
             <td scope="row">{{genjuegos.game}}</td>
             <td>{{genjuegos.genre}}</td>
+            {% if user.is_staff %}
+            <td>
+              <button class="btn btn-info"><a class="text-white-50" href="{% url 'gamebygenre_update' genjuegos.id %}">Modificar</a></button>
+              <button class="btn btn-danger"><a class="text-white-50" href="{% url 'gamebygenre_delete' genjuegos.id %}">Eliminar</a></button>
+            </td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>
