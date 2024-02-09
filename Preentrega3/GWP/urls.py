@@ -22,7 +22,8 @@ urlpatterns = [
     #path('game/delete/<id=pk>/', views.game_delete, name= "game_delete"),
     path('game/delete/<int:pk>', GameDelete.as_view(), name= "game_delete"),
     path('game/detail/<int:pk>', GameDetail.as_view(), name= "game_detail"),
-    path('game/login', CustomLoginView.as_view(), name= "login"),
+    path('login/', CustomLoginView.as_view(), name= "login"),
     path('logout/', LogoutView.as_view(template_name="GWP/logout.html"), name= "logout"),
     path('register/', register, name= "register"),
+    path('about/', about, name= "about"),
 ]

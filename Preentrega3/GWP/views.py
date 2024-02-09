@@ -3,11 +3,15 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
 
 def index(request):
     return render(request, "GWP/index.html")
+
+def about(request):
+    return render(request, "GWP/about.html")
 
 #def game_list(request):
 #    consult = models.game.objects.all()
@@ -70,7 +74,6 @@ class GenreCreate(LoginRequiredMixin, CreateView):
 class GameByGenreList(ListView):
     model = gamebygenre
 
-
 #def gamebygenre_create(request):
 #    if request.method == "POST":
 #        form = forms.gamebygenreform(request.POST)
@@ -87,6 +90,7 @@ class GameByGenreCreate(LoginRequiredMixin, CreateView):
     form_class = gamebygenreform
     success_url = reverse_lazy("gamebygenre_list")
 
+@login_required
 def add_index(request):
     return render(request, "GWP/add_index.html")
 

@@ -1,11 +1,29 @@
 {% extends 'GWP/base.html' %}
 
 {% block title %}
-    Detalle del juego
+    Detalles de {{object.nombre}}
 {% endblock title %}
 
+{% block cont_title %}
+   ⏬ {{object.nombre}} ⏬
+{% endblock cont_title %}
+
 {% block contenido %}
-    <p>{{object.nombre}}</p>
-    <p>{{object.precio}}</p>
-    <p>{{object.descripcion}}</p>
+
+<table class="table table-dark table-striped row-cols-auto text-md-center">
+    <thead>
+      <tr>
+        <th scope="col" class="text-black text-bg-light">Nombre del juego</th>
+        <th scope="col" class="text-black text-bg-light"></th>
+        <th scope="col" class="text-black text-bg-light">Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><p>{{object.nombre}}</p></td>
+            <td><p>Precio: {{object.precio}} $</p></td>
+            <td><p>{{object.descripcion}}</p></td>
+        </tr>
+    </tbody>
+  </table>  
 {% endblock contenido %}
