@@ -40,5 +40,9 @@ class CustomUserCreationForm(UserCreationForm):
 
 #class GamePurchaseForm(forms.ModelForm):
 #    class Meta:
-#        model = models.game
-#        fields = ["nombre", "precio"]
+#        model = models.GamePurchase
+#        fields = ["precio", "cantidad"]
+#        widgets = {
+#        "precio": forms.NumberInput(attrs={"class": "formcontrol"}),
+#        "cantidad": forms.NumberInput(attrs={"class": "formcontrol"}),
+#        }

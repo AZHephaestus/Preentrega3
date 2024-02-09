@@ -13,7 +13,9 @@
                 <li class="nav-item"><a class="nav-link {% if '/genre/' in request.path %} active {% endif %}" href="{% url 'genre_list' %}">Géneros</a></li>
                 <li class="nav-item"><a class="nav-link {% if '/gamebygenre/' in request.path %} active {% endif %}" href="{% url 'gamebygenre_list' %}">Juegos por género</a></li>
                 {% if user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link {% if '/add/' in request.path %} active {% endif %}" href="{% url 'add_index' %}">Agregar</a></li>
+                    {% if user.is_staff %}
+                    <li class="nav-item"><a class="nav-link {% if '/add/' in request.path %} active {% endif %}" href="{% url 'add_index' %}">Agregar</a></li>   
+                    {% endif %}
                 <li class="nav-item nav-link navbar-brand"> {{user.username}} </li>
                 <li class="nav-item nav-link ">
                     <form action="{% url 'logout' %}" method="post">
@@ -24,8 +26,8 @@
                 {% else %}
                     <li class="nav-item"><a class="nav-link {% if '/login/' in request.path %} active {% endif %}" href="{% url 'login' %}">Login</a></li>
                     <li class="nav-item"><a class="nav-link {% if '/register/' in request.path %} active {% endif %}" href="{% url 'register' %}">Registrarse</a></li>
-                    <li class="nav-item"><a class="nav-link {% if '/about/' in request.path %} active {% endif %}" href="{% url 'about' %}">Acerca de</a></li>
                 {% endif %}
+                    <li class="nav-item"><a class="nav-link {% if '/about/' in request.path %} active {% endif %}" href="{% url 'about' %}">Nosotros</a></li>
             </ul>
         </div>
     </div>

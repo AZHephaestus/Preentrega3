@@ -159,8 +159,20 @@ class GameByGenreDelete(LoginRequiredMixin, DeleteView):
 #class GamePurchase(ListView):
 #    model = GamePurchaseForm
 
-#class GamePurchaseList(ListView):
-#    model = GamePurchase
+#class GamePurchaseList(LoginRequiredMixin, ListView):
+#    model = game
+#
+#    def get_queryset(self):
+#        if self.request.GET.get("consulta"):
+#            consulta = self.request.GET.get("consulta")
+#            object_list = game.objects.filter(nombre__icontains=consulta)
+#        else:
+#            object_list = game.objects.all()
+#        return object_list
+#
+#class GamePurchase(LoginRequiredMixin, DeleteView):
+#    model = game
+#    success_url = reverse_lazy("gamepurchase_list")
 
 #def game_purchase(request, pk: int):
 #    consulta = GamePurchase.objects.get(id = pk)

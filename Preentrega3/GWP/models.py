@@ -21,5 +21,6 @@ class gamebygenre(models.Model):
     
 #class GamePurchase(models.Model):
 #    game = models.ForeignKey(game, on_delete = models.CASCADE, verbose_name="Juego")
+#    cantidad = models.PositiveIntegerField()
 #    def __str__(self) -> str:
 #        return self.game

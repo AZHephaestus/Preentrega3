@@ -33,8 +33,10 @@
     </div>
 </div>
     {% endfor %}
+    {% if user.is_staff %}
     <div class="text-center">
         <button class="btn btn-dark my-4"><a class="text-white-50" href="{% url 'game_form' %}">Añadir juegos</a></button>
     </div>
+    {% endif %}
 
 {% endblock contenido %}

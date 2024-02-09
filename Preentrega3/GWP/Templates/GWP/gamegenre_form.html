@@ -16,5 +16,6 @@
         {% csrf_token %}
         {{form.as_p}}
         <button type="submit" class="btn btn-dark btn-sm">Agregar</button>
+        <a href="{% url 'genre_list' %}" class="btn btn-dark text-decoration-none">Cancelar</a>
     </form>
 {% endblock contenido %}

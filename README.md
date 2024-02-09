@@ -1,12 +1,26 @@
 # Preentrega3
 
-## Nombre
+## Nombre del proyecto
 
-Alejandro Zambrano
+GWP/GamingWebPage
 
 ## Resumen del proyecto
 
-- Página web orientada a videojuegos.
+- Página web orientada a videojuegos, con visión a que el usuario pueda
+informarse de los videojuegos en la página.
+
+-(*Por añadir*): Página web orientada a videojuegos, con visión a que el usuario pueda
+informarse de los videojuegos en la página. (*Y que permita comprar el videojuego en que el usuario se haya interesado*)
+
+## Por hacer
+
+-Botón de compra, opción de compra si el usuario está registrado y loggeado.
+
+-Botón de ventas para usuarios registrados y loggeados.
+
+-Permitir que el usuario haga CRUD de sus propias publicaciones.
+
+-Entender cómo arreglar el body en base.html porque sin importar qué no puedo modificar el tamaño.
 
 ## Pasos para ejecutar el proyecto
 
@@ -29,3 +43,8 @@ Alejandro Zambrano
     -Ejecutar la app en la terminal, comando: python manage.py runserver
 
     -Se puede detener la ejecución en la terminal con el comando "ctrl+c"
+
+## Usuario admin
+
+username: admin
+pw: admin123
