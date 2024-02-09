@@ -1,5 +1,5 @@
 from django.urls import path
-
+from django.contrib.auth.views import LogoutView
 from . import views
 
 urlpatterns = [
@@ -23,4 +23,5 @@ urlpatterns = [
     path('game/delete/<int:pk>', views.GameDelete.as_view(), name= "game_delete"),
     path('game/detail/<int:pk>', views.GameDetail.as_view(), name= "game_detail"),
     path('game/login', views.CustomLoginView.as_view(), name= "login"),
+    path('logout/', LogoutView.as_view(template_name="GWP/logout.html"), name= "logout"),
 ]

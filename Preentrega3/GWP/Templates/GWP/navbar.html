@@ -8,12 +8,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'add_index' %}">Agregar</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'game_list' %}">Juegos</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'genre_list' %}">Géneros</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'gamebygenre_list' %}">Juegos por género</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active  {% endif %}" href="{% url 'index' %}">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link {% if '/game/' in request.path %} active {% endif %}" href="{% url 'game_list' %}">Juegos</a></li>
+                <li class="nav-item"><a class="nav-link {% if '/genre/' in request.path %} active {% endif %}" href="{% url 'genre_list' %}">Géneros</a></li>
+                <li class="nav-item"><a class="nav-link {% if '/gamebygenre/' in request.path %} active {% endif %}" href="{% url 'gamebygenre_list' %}">Juegos por género</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link {% if '/add/' in request.path %} active {% endif %}" href="{% url 'add_index' %}">Agregar</a></li>
+                <li class="nav-item nav-link navbar-brand"> {{user.username}} </li>
+                <li class="nav-item nav-link ">
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-sm btn-dark my-0">Logout</button>
+                    </form>
+                </li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link {% if '/login/' in request.path %} active {% endif %}" href="{% url 'login' %}">Login</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>

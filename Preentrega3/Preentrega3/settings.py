@@ -11,16 +11,21 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+from django.core.management.utils import get_random_secret_key
+import os.path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+
+SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-oas-6hjepa=m8#(4*s+-e8$t)3wi8gx*qxgry+8=u)_i&j57)y'
+SECRET_KEY = get_random_secret_key() #'django-insecure-oas-6hjepa=m8#(4*s+-e8$t)3wi8gx*qxgry+8=u)_i&j57)y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -52,10 +57,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Preentrega3.urls'
 
+TEMPLATE_DIRS = [
+    os.path.join(SETTINGS_PATH, 'Templates'),
+]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
