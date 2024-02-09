@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.models import User
 from . import models
 
@@ -21,7 +21,16 @@ class gamebygenreform(forms.ModelForm):
 
 class CustomAuthenticationForm(AuthenticationForm):
     class Meta:
-        models= User
+        model= User
+        fields= ["username", "password"]
+        widgets = {
+        "username": forms.TextInput(attrs={"class": "formcontrol"}),
+        "password": forms.PasswordInput(attrs={"class": "formcontrol"}),
+        }
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model= User
         fields= ["username", "password1", "password2"]
         widgets = {
         "username": forms.TextInput(attrs={"class": "formcontrol"}),

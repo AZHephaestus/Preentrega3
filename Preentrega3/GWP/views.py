@@ -2,6 +2,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import *
 from .forms import *
 
@@ -33,7 +34,7 @@ class GameList(ListView):
 #        form = forms.gameform()
 #    return render(request, "GWP/game_creation.html", {"form": form})
 
-class GameCreate(CreateView):
+class GameCreate(LoginRequiredMixin, CreateView):
     model = game
     form_class = gameform
     success_url = reverse_lazy("game_list") 
@@ -56,7 +57,7 @@ class GenreList(ListView):
 #        form = forms.genreform()
 #    return render(request, "GWP/genre_creation.html", {"form": form})    
     
-class GenreCreate(CreateView):
+class GenreCreate(LoginRequiredMixin, CreateView):
     model = gamegenre
     form_class = genreform
     success_url = reverse_lazy("genre_list") 
@@ -81,7 +82,7 @@ class GameByGenreList(ListView):
 #        context = {"form": form}
 #    return render(request, "GWP/gamebygenre_creation.html", context) 
     
-class GameByGenreCreate(CreateView):
+class GameByGenreCreate(LoginRequiredMixin, CreateView):
     model = gamebygenre
     form_class = gamebygenreform
     success_url = reverse_lazy("gamebygenre_list")
@@ -100,7 +101,7 @@ def add_index(request):
 #        form = gameform(instance=consulta)
 #    return render(request, "GWP/game_form.html", {"form": form})
 
-class gameUpdate(UpdateView):
+class gameUpdate(LoginRequiredMixin, UpdateView):
     model = game
     form_class = gameform
     success_url = reverse_lazy("game_list") 
@@ -112,7 +113,7 @@ class gameUpdate(UpdateView):
 #        return redirect("game_list")
 #    return render(request, "GWP/game_confirm_delete.html", {"object": consulta})
 
-class GameDelete(DeleteView):
+class GameDelete(LoginRequiredMixin, DeleteView):
     model = game
     success_url = reverse_lazy("game_list")
 
@@ -122,3 +123,13 @@ class GameDetail(DetailView):
 class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
     template_name = "GWP/login.html"
+
+def register(request):
+    if request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+    else:
+        form = CustomUserCreationForm()
+    return render(request, "GWP/register.html", {"form": form})
