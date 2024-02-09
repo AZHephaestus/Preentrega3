@@ -19,3 +19,7 @@ class gamebygenre(models.Model):
     def __str__(self) -> str:
         return f"{self.game}:{self.genre}"
     
+#class GamePurchase(models.Model):
+#    game = models.ForeignKey(game, on_delete = models.CASCADE, verbose_name="Juego")
+#    def __str__(self) -> str:
+#        return self.game

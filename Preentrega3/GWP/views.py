@@ -137,3 +137,32 @@ def register(request):
     else:
         form = CustomUserCreationForm()
     return render(request, "GWP/register.html", {"form": form})
+
+class GenreUpdate(LoginRequiredMixin, UpdateView):
+    model = gamegenre
+    form_class = genreform
+    success_url = reverse_lazy("genre_list") 
+
+class GenreDelete(LoginRequiredMixin, DeleteView):
+    model = gamegenre
+    success_url = reverse_lazy("genre_list")
+
+#class GamePurchase(ListView):
+#    model = GamePurchaseForm
+
+#class GamePurchaseList(ListView):
+#    model = GamePurchase
+
+#def game_purchase(request, pk: int):
+#    consulta = GamePurchase.objects.get(id = pk)
+#    if consulta == pk:
+#        consult = models.GamePurchase.objects.all()
+#        context = {"gameP": consult}
+#        return render(request, "GWP/game_purchase.html", context)
+
+#@login_required
+#def game_purchase(request):
+#    return render(request, "GWP/game_purchase.html")
+
+#class GamePurchase(ListView):
+#    model = GamePurchase

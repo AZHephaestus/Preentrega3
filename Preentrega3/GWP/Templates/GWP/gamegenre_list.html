@@ -15,6 +15,10 @@
     <ul class="list-group col-lg-auto text-center my-3">
         <li class="list-group-item text-bg-dark">
             {{generos.genero}}
+            {% if user.is_staff %}
+            <button class="btn btn-info"><a class="text-white-50" href="{% url 'genre_update' generos.id %}">Modificar</a></button>
+            <button class="btn btn-danger"><a class="text-white-50" href="{% url 'genre_delete' generos.id %}">Eliminar</a></button>
+            {% endif %}
         </li>
     </ul>
         

@@ -21,7 +21,7 @@ class gamebygenreform(forms.ModelForm):
 
 class CustomAuthenticationForm(AuthenticationForm):
     class Meta:
-        model= User
+        model= User #Variable puede ser "models".
         fields= ["username", "password"]
         widgets = {
         "username": forms.TextInput(attrs={"class": "formcontrol"}),
@@ -30,10 +30,15 @@ class CustomAuthenticationForm(AuthenticationForm):
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
-        model= User
+        model= User #Variable debe ser "model" o explota.
         fields= ["username", "password1", "password2"]
         widgets = {
         "username": forms.TextInput(attrs={"class": "formcontrol"}),
         "password1": forms.PasswordInput(attrs={"class": "formcontrol"}),
         "password2": forms.PasswordInput(attrs={"class": "formcontrol"}),
         }
+
+#class GamePurchaseForm(forms.ModelForm):
+#    class Meta:
+#        model = models.game
+#        fields = ["nombre", "precio"]

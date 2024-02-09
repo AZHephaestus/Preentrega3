@@ -1,0 +1,17 @@
+{% extends 'GWP/base.html' %}
+
+{% block title %}
+    Eliminar géneros
+{% endblock title %}
+
+{% block contenido %}
+
+    <form method="post" class="text-center">
+        {% csrf_token %}
+        <p class="text-decoration-underline">¿Estás seguro de que deseas eliminar {{object.nombre}}?</p>
+        <div class="d-grid gap-2 d-md-block">
+            <button type="submit" class="btn btn-dark btn-sm">Sí</button>
+            <a href="{% url 'game_list' %}" class="btn btn-dark text-decoration-none">Cancelar</a>
+        </div>
+    </form>
+{% endblock contenido %}
