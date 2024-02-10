@@ -44,6 +44,10 @@ informarse de los videojuegos en la página. (*Y que permita comprar el videojue
 
     -Se puede detener la ejecución en la terminal con el comando "ctrl+c"
 
+## Video de presentación
+
+https://youtu.be/PWwyug6HdK4
+
 ## Usuario admin
 
 username: admin
